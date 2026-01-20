@@ -102,7 +102,7 @@ td {
 
 .recipe__prep-title {
   color: var(--color-rose-800);
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-200);
 }
 
 .recipe__heading {
