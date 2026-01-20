@@ -1,0 +1,236 @@
+@font-face {
+  font-family: 'Outfit';
+  src: url('./assets/fonts/outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YoungSerif';
+  src: url('./assets/fonts/young-serif/YoungSerif-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-rose-800: #7a284e;
+  --color-rose-50: #fff7fb;
+  --color-stone-900: #312e2c;
+  --color-stone-600: #5f564d;
+  --color-stone-150: #e3ddd7;
+  --color-stone-100: #f3e5d7;
+  --color-brown-800: #854632;
+  --color-white: #ffffff;
+
+  --font-outfit: 'Outfit', sans-serif;
+  --font-young-serif: 'YoungSerif', serif;
+  --fs-1: 2.5rem;
+  --fs-1-mobile: 2.25rem;
+  --fs-2: 1.75rem;
+  --fs-3: 1.25rem;
+  --fs-4: 1rem;
+  --lh-100: 1;
+  --lh-150: 1.5;
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+
+  --space-1600: 8rem;
+  --space-600: 3rem;
+  --space-500: 2.5rem;
+  --space-400: 2rem;
+  --space-300: 1.5rem;
+  --space-200: 1rem;
+  --space-150: 0.75rem;
+  --space-100: 0.5rem;
+
+  --bullet-size: 0.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-outfit);
+  background: var(--color-stone-100);
+}
+
+p,
+li,
+td {
+  color: var(--color-stone-600);
+}
+
+.recipe {
+  background: var(--color-white);
+}
+
+.recipe__top-image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recipe__content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-500) var(--space-400);
+  gap: var(--space-400);
+}
+
+.recipe__intro > h1 {
+  margin-bottom: var(--space-300);
+}
+
+.recipe__prep-time {
+  padding: var(--space-300);
+  border-radius: 12px;
+  background: var(--color-rose-50);
+}
+
+.recipe__prep-title {
+  color: var(--color-rose-800);
+  margin-bottom: 1rem;
+}
+
+.recipe__heading {
+  color: var(--color-brown-800);
+  margin-bottom: var(--space-300);
+}
+
+.recipe__bullet-list,
+.recipe__numbered-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+}
+
+.recipe__bullet-list li::before {
+  content: '';
+  width: var(--bullet-size);
+  height: var(--bullet-size);
+  background: var(--color-rose-800);
+  border-radius: 50%;
+  align-self: center;
+}
+
+.recipe__numbered-list {
+  counter-reset: step;
+}
+
+.recipe__numbered-list li::before {
+  counter-increment: step;
+  content: counter(step) '.';
+  /* Use `start` to match Figma; `end` makes more sense if the list exceeds 10 items. */
+  justify-self: start;
+  font-weight: var(--fw-bold);
+  color: var(--color-rose-800);
+}
+
+.recipe__bullet-list li,
+.recipe__numbered-list li {
+  display: grid;
+  grid-template-columns: var(--space-200) 1fr;
+  column-gap: var(--space-200);
+  padding-left: var(--space-100);
+}
+
+.recipe__nutrition > p {
+  margin-bottom: var(--space-300);
+}
+
+.recipe__nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.recipe__nutrition-table tr:not(:last-child) {
+  border-bottom: 1px solid var(--color-stone-150);
+}
+
+.recipe__nutrition-table td {
+  padding-block: var(--space-150);
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+.recipe__nutrition-table td:first-child {
+  padding-inline: var(--space-400) var(--space-100);
+}
+
+.recipe__nutrition-table td:last-child {
+  padding-inline: var(--space-100) var(--space-400);
+}
+
+.recipe__nutrition-table tr:first-child td {
+  padding-top: 0;
+}
+
+.recipe__nutrition-table tr:last-child td {
+  padding-bottom: 0;
+}
+
+.recipe__nutrition-val {
+  font-weight: var(--fw-bold);
+  color: var(--color-brown-800);
+}
+
+hr.recipe__divider {
+  border: none;
+  height: 1px;
+  background: var(--color-stone-150);
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  padding-block: 1rem;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  /* Unsure if this padding is necessary */
+  main {
+    padding-block: var(--space-1600);
+  }
+
+  .recipe {
+    max-width: 38.5rem;
+    border-radius: 24px;
+    padding: var(--space-500);
+  }
+
+  .recipe__top-image {
+    border-radius: 12px;
+    margin-bottom: var(--space-500);
+  }
+
+  .recipe__content {
+    padding: 0;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+  .recipe {
+    max-width: 46rem;
+  }
+}
