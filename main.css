@@ -195,7 +195,7 @@ hr.recipe__divider {
   background: var(--color-stone-150);
 }
 
-/* Tablet 768px*/
+/* Tablet 768px */
 @media (min-width: 48rem) {
   main {
     padding-block: var(--space-1600);
@@ -217,7 +217,7 @@ hr.recipe__divider {
   }
 }
 
-/* Desktop 1440px*/
+/* Desktop 1440px */
 @media (min-width: 90rem) {
   .recipe {
     max-width: 46rem;

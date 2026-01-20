@@ -5,15 +5,6 @@
   line-height: var(--lh-100);
 }
 
-@media (min-width: 768px) {
-  .text-preset-1 {
-    font-family: var(--font-young-serif);
-    font-size: var(--fs-1);
-    font-weight: var(--fw-regular);
-    line-height: var(--lh-100);
-  }
-}
-
 .text-preset-2 {
   font-family: var(--font-young-serif);
   font-size: var(--fs-2);
@@ -33,4 +24,14 @@
   font-size: var(--fs-4);
   font-weight: var(--fw-regular);
   line-height: var(--lh-150);
+}
+
+/* Tablet or Desktop (>= 768px) */
+@media (min-width: 48rem) {
+  .text-preset-1 {
+    font-family: var(--font-young-serif);
+    font-size: var(--fs-1);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-100);
+  }
 }
